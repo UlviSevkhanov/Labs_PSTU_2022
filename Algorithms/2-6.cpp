@@ -8,12 +8,12 @@ int main()
 	int n;
 	int numofspaces;
 	int numofstars = 1;
-	cout << "¬ведите число N(натуральное и число должно быть больше 2)" << endl;
+	cout << "Vvedite chislo N(naturalnoe) > 2" << endl;
 	cin >> n;
 
 	if (n <= 2)
 	{
-		cout << "¬ведите корректное значение N" << endl;
+		cout << "Vvedite korrektnoe znachenie N" << endl;
 	}
 
 	numofspaces = 0;

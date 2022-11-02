@@ -7,40 +7,40 @@ int main()
 	setlocale(LC_ALL, "Rus");
 	int n;
 	int s;
-	cout << "¬ведиите число N(квадрат числа)" << endl;
+	cout << "Vvedite chislo N(kvadrat chisla)" << endl;
 	cin >> n;
 	s = sqrt(n);
 	if (s * s != n)
 	{
-		cout << "¬ведите корректное значение N" << endl;
+		cout << "Vvedite korrektnoe znachenie N" << endl;
 	}
 	else
 	{
-		//заполненный квадрат из N звЄздочек
-		for (int i = 1; i <= s; i++) // по строкам
+		//zapolnenniy kvadrat iz N zvezdochek
+		for (int i = 1; i <= s; i++) // po strokam
 		{
-			for (int j = 1; j <= s; j++) // по столбцам
+			for (int j = 1; j <= s; j++) // po stolbcam
 			{
 				cout << "* ";
 			}
-			cout << endl; // переход на новую строку
+			cout << endl; // perexod na novuyu stroku
 		}
 	}
 	cin >> n;
-	    //заполненный квадрат со стороной N
-	for (int i = 1; i <= n; i++) // по строкам
+	    //zapolnenniy kvadrat so storonoi N
+	for (int i = 1; i <= n; i++) // po strokam
 	{
-		for (int j = 1; j <= n; j++) // по столбцам
+		for (int j = 1; j <= n; j++) // po stolbcam
 		{
 			cout << "* ";
 		}
-		cout << endl; // переход на новую строку
+		cout << endl; // perexod na novuyu stroku
 	}
 	cout << endl;
 	cin >> n;
 	int numofspaces=n-2;
 
-	for (int i = 1; i <= n; i++) // незаполненный квадрат
+	for (int i = 1; i <= n; i++) // nezapolnenniy kvadrat 
 	{
 		if ((i == n) || (i == 1))
 		{

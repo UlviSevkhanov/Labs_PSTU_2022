@@ -4,16 +4,15 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "Rus");
-
     float n;
     int numofspaces;
     int numofstars = 1;
-    cout << "¬ведите основание равнобедренного треугольника N (нечетное и число должно быть больше 3)" << endl;
+    cout << "Vvedite nechetnoe chislo N >3" << endl;
     cin >> n;
 
     if ((n <= 3) || ((int)n % 2 != 1))
     {
-        cout << "¬ведите корректное значение N" << endl;
+        cout << "Vvedite korrektnoe znachenie N" << endl;
     }
 
     numofspaces = n / 2;

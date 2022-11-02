@@ -7,12 +7,12 @@ int main()
 	setlocale(LC_ALL, "Rus");
 	int n, numofstars;
 	
-	cout << "¬ведите число N(натуральное и число должно быть больше 2)" << endl;
+	cout << "Vvedite chislo N(naturalnoe) > 2" << endl;
 	cin >> n;
 
 	if (n <= 2)
 	{
-		cout << "¬ведите корректное значение N" << endl;
+		cout << "Vvedite korrektnoe znachenie N" << endl;
 	}
 
 	numofstars = 1;
