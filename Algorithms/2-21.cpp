@@ -24,7 +24,7 @@ int main()
 		{
 			flag1 = true;
 		}
-		if (num2 < num1 && num2 != 0)
+		if ((num2 < num1) && num2 != 0)
 		{
 			flag2 = false;
 		}
