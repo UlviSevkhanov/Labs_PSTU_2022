@@ -2,54 +2,47 @@
 
 using namespace std;
 
+int num1, num2;
+
 int main()
 {
 	setlocale(LC_ALL, "RUS");
-	int num1, num2;
-	bool flag1 = true; //отвечает за проверку, если последовательность возрастает
-	bool flag2 = true; //отвечает за остановку последовательности
+
+	bool flag1 = false;// отвечает за окончание ввода(т.е вводится 0)
+	bool flag2 = true;// отвечает за упорядоченность чисел по возрастанию
+	bool flag_first = false;
 
 	cout << "Введите первое число" << endl;
 	cin >> num1;
-	cout << "Введите следующее число" << endl;
-	cin >> num2;
 
-	if (num2 == 0)
-	{
-		flag2 = false;
-	}
+	if (num1 == 0)
+		flag_first = true;
 
-	while ((flag1 && num2 != 0) && flag2)
+	while (!flag1 && !flag_first)
 	{
+		cout << "Введите следующее число" << endl;
+		cin >> num2;
 		if (num2 == 0)
+		{
+			flag1 = true;
+		}
+		if (num2 < num1 && num2 != 0)
 		{
 			flag2 = false;
 		}
-		if (num1 != 0)
-		{
-			if (num1 > num2)
-			{
-				flag1 = false;
-			}
-		}
 		num1 = num2;
-		cout << "Введите следующее число" << endl;
-		cin >> num2;
+	}
+	if (flag_first)
+	{
+		cout << "Ввода (первым числом ввели 0)" << endl;
 	}
 	if (flag2)
 	{
-		if (flag1)
-		{
-			cout << "Числа упорядочены по возрастанию" << endl;
-		}
-		else if (!flag1)
-		{
-			cout << "Числа упорядочены по убыванию" << endl;
-		}
+		cout << "Числа упорядочены по возрастанию";
 	}
 	else
 	{
-		cout << "Ошибка" << endl;
+		cout << "Числа упорядочены не по возрастанию";
 	}
 
 	return 0;
