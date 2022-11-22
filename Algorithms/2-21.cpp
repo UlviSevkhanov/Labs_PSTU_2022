@@ -2,15 +2,13 @@
 
 using namespace std;
 
-int num1, num2;
-
 int main()
 {
 	setlocale(LC_ALL, "RUS");
-
+	int num1, num2;
 	bool flag1 = false;// отвечает за окончание ввода(т.е вводитс€ 0)
 	bool flag2 = true;// отвечает за упор€доченность чисел по возрастанию
-	bool flag_first = false;
+	bool flag_first = false; // провер€ет если ввели первым число 0
 
 	cout << "¬ведите первое число" << endl;
 	cin >> num1;
