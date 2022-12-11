@@ -1,10 +1,13 @@
-#include <iostream>
+#include<iostream>
 
 int main()
 {
 	setlocale(LC_ALL, "RUS");
-	int num1;
-	int num2;
+	float num1;
+	float num2;
+	float* pnum1;
+	float* pnum2;
+	float sum = 0;
 
 	std::cout << "¬ведите первое число " << std::endl;
 	std::cin >> num1;
@@ -12,13 +15,12 @@ int main()
 	std::cout << "¬ведите второе число " << std::endl;
 	std::cin >> num2;
 
-	int* pnum1 = &num1;
-	int* pnum2 = &num2;
+	pnum1 = &num1;
+	pnum2 = &num2;
 
-	int r_num1 = *pnum1;
-	int r_num2 = *pnum2;
+	sum = *pnum1 + *pnum2;
 
-	std::cout << "—умма двух чисел равна " << r_num1 + r_num2 << std::endl;
+	std::cout << "—умма равна " << sum << std::endl;
 
 	return 0;
 }
