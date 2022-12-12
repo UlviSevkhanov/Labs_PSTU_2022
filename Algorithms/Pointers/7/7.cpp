@@ -10,12 +10,12 @@ int main()
 	std::cout << "Введите значение переменной n" << std::endl;
 	std::cin >> *ptr;
 
-	std::cout << "Введите новое значение перменной" << std::endl;
+	std::cout << "Введите новое значение переменной" << std::endl;
 	std::cin >> n_new;
 
 	*ptr = n_new;
 	
-	std::cout << "Изменное значение переменной равно " << n << std::endl;
+	std::cout << "Изменённое значение переменной равно " << n << std::endl;
 
 	return 0;
 }
