@@ -26,6 +26,8 @@ int main()
         xPrev = x;
         x = lambda * (acos(xPrev) - sqrt(1 - 0.3 * pow(xPrev, 3))) + xPrev;
     }
+
     cout << "Корень по методу итераций: " << x << endl;
+
     return 0;
 }
