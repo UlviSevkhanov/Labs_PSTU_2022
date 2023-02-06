@@ -8,7 +8,7 @@ int main()
 	int arr[] = { 2,6,7,1,-5,90 };
 	for (int i = 0; i < SIZE - 1; i++)
 	{
-		for (int j = 0; j < SIZE-1; j++)
+		for (int j = 0; j < SIZE-i-1; j++)
 		{
 			if (arr[j] > arr[j + 1])
 			{
