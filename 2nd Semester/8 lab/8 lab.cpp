@@ -101,7 +101,7 @@ int main()
                 fp << s[i].fio << ' ';
                 fp << s[i].address << ' ';
                 fp << s[i].group << ' ';
-                fp << s[i].rating << ' ';
+                fp << s[i].rating << ' ' << "\n";
                 cout << endl;
             }
             fp.close();
@@ -120,7 +120,7 @@ int main()
             {
                 string str;
                 getline(fp, str);
-                cout << str << endl;
+                cout << str << "\n";
             }
             fp.close();  
         }
@@ -146,7 +146,7 @@ int main()
                     fp2 << s[i].fio << ' ';
                     fp2 << s[i].address << ' ';
                     fp2 << s[i].group << ' ';
-                    fp2 << s[i].rating << ' ';
+                    fp2 << s[i].rating << ' ' << "\n";
                     cout << endl;
                 }
             }
