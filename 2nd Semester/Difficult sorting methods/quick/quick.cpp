@@ -8,7 +8,7 @@ void quickSort(int* arr, int first, int last)
 		int left = first;
 		int right = last;
 		int mid = arr[(left + right) / 2];
-		do
+		while (left < right)
 		{
 			while (arr[left] < mid)
 			{
@@ -26,7 +26,7 @@ void quickSort(int* arr, int first, int last)
 				left++;
 				right--;
 			}
-		} while (left < right);
+		}
 		quickSort(arr, first, right);
 		quickSort(arr, left, last);
 	}

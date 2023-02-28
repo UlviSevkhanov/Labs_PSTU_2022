@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
 
-void bucketSort(int arr[], int n) {
+void bucketSort(int arr[], int n) 
+{
 	const int NUM_BUCKETS = 10; 
 	const int ARRAY_SIZE = 10; 
 
@@ -9,17 +10,21 @@ void bucketSort(int arr[], int n) {
 
 	int bucketSizes[NUM_BUCKETS] = { 0 };
 
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n; i++) 
+	{
 		int bucketIndex = arr[i] / NUM_BUCKETS;
 		buckets[bucketIndex][bucketSizes[bucketIndex]] = arr[i];
 		bucketSizes[bucketIndex]++;
 	}
 
-	for (int i = 0; i < NUM_BUCKETS; i++) {
-		for (int j = 1; j < bucketSizes[i]; j++) {
+	for (int i = 0; i < NUM_BUCKETS; i++) 
+	{
+		for (int j = 1; j < bucketSizes[i]; j++) 
+		{
 			int temp = buckets[i][j];
 			int k = j - 1;
-			while (k >= 0 && buckets[i][k] > temp) {
+			while (k >= 0 && buckets[i][k] > temp) 
+			{
 				buckets[i][k + 1] = buckets[i][k];
 				k--;
 			}
@@ -28,8 +33,10 @@ void bucketSort(int arr[], int n) {
 	}
 
 	int index = 0;
-	for (int i = 0; i < NUM_BUCKETS; i++) {
-		for (int j = 0; j < bucketSizes[i]; j++) {
+	for (int i = 0; i < NUM_BUCKETS; i++) 
+	{
+		for (int j = 0; j < bucketSizes[i]; j++) 
+		{
 			arr[index++] = buckets[i][j];
 		}
 	}

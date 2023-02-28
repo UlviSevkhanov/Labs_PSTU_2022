@@ -9,7 +9,10 @@ void countSort(int arr[], int size)
 
     for (int i = 1; i < size; i++)
     {
-        if (arr[i] > max) { max = arr[i]; }
+        if (arr[i] > max) 
+        { 
+            max = arr[i]; 
+        }
     }
 
     count = new int[max + 1];
