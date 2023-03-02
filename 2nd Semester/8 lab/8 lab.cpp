@@ -13,7 +13,6 @@ struct student
 	char address[256];
 	int group;
 	float rating;
-	void input();
 };
 
 void tabl()
@@ -41,19 +40,6 @@ void print(student* s, int n)
     }
 }
 
-void student::input()
-{
-	cout << "Введите ФИО студента: ";
-    cin.get();
-	cin.getline(fio, 79);
-    cout << "Введите домашний адрес студента: ";
-    cin.getline(address, 79);
-    cout << "Введите группу студента: ";
-    cin >> group;
-    cout << "Введите рейтинг студента: ";
-    cin >> rating;
-}
-
 int main()
 {
 	SetConsoleCP(1251);
@@ -79,7 +65,15 @@ int main()
         {
             for (int i = 0; i < n; i++)
             {
-                s[i].input();
+                cout << "Введите ФИО студента: ";
+                cin.get();
+                cin.getline(s[i].fio, 79);
+                cout << "Введите домашний адрес студента: ";
+                cin.getline(s[i].address, 79);
+                cout << "Введите группу студента: ";
+                cin >> s[i].group;
+                cout << "Введите рейтинг студента: ";
+                cin >> s[i].rating;
             }
         }
         if (o == 2)
