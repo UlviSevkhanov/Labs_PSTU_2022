@@ -18,27 +18,25 @@ struct student
 
 void tabl()
 {
-    int z;
-    for (z = 0; z < 40; z++)
+    for (int z = 0; z < 40; z++)
+    {
         cout << ' ';
+    }
 }
 
 void print(student* s, int n)
 {
-    int i;
     cout << '|' << ' ' << setw(30) << "ФИО";
     cout << '|' << ' ' << setw(40) << "Домашний адрес";
     cout << '|' << ' ' << setw(40) << "Группа";
-    cout << '|' << ' ' << setw(48) << "Рейтинг";
-    cout << '|';
+    cout << '|' << ' ' << setw(48) << "Рейтинг" << '|';
     tabl();
-    for (i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         cout << '|' << ' ' << setw(30) << s[i].fio << '|';
         cout << ' ' << setw(40) << s[i].address << '|';
         cout << ' ' << setw(40) << s[i].group << '|';
-        cout << ' ' << setw(48) << s[i].rating;
-        cout << '|';
+        cout << ' ' << setw(48) << s[i].rating << '|';
         tabl();
     }
 }
@@ -94,7 +92,7 @@ int main()
             if (!fp.is_open())
             {
                 cout << "Ошибка!" << endl;
-                return 1;
+                break;
             }
             for (int i = 0; i < n; i++)
             {
@@ -102,7 +100,6 @@ int main()
                 fp << s[i].address << ' ';
                 fp << s[i].group << ' ';
                 fp << s[i].rating << ' ' << "\n";
-                cout << endl;
             }
             fp.close();
         }
@@ -113,7 +110,7 @@ int main()
             if (!fp.is_open())
             {
                 cout << "Ошибка!" << endl;
-                return 1;
+                break;
             }
 
             while (fp.peek() != EOF)
@@ -133,7 +130,7 @@ int main()
             if (!fp.is_open())
             {
                 cout << "Ошибка!" << endl;
-                return 1;
+                break;
             }
 
             cout << "Удалить из файла элементы рейтинг которых меньше: ";
@@ -147,7 +144,6 @@ int main()
                     fp2 << s[i].address << ' ';
                     fp2 << s[i].group << ' ';
                     fp2 << s[i].rating << ' ' << "\n";
-                    cout << endl;
                 }
             }
             fp.close();
@@ -164,7 +160,7 @@ int main()
             if (!fp.is_open())
             {
                 cout << "Ошибка!" << endl;
-                return 1;
+                break;
             }
 
             student r;
@@ -182,14 +178,13 @@ int main()
             fp << r.fio << ' ';
             fp << r.address << ' ';
             fp << r.group << ' ';
-            fp << r.rating << ' ';
-            cout << endl;
+            fp << r.rating << ' ' << '\n';
 
             fp.close();
         }
         if (o == 7)
         {
-            return 2;
+            break;
         }
     }
     delete[] s;
