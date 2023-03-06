@@ -51,6 +51,11 @@ int main()
 	int count = 0;
 	int last_word = 0;
 
+	if (!f2.is_open())
+	{
+		return 1;
+	}
+
 	while (!f2.eof())
 	{
 		f2.get(ch);
@@ -70,7 +75,21 @@ int main()
 
 	f2.close();
 
+	ifstream f3("F2.txt");
+
+	if (!f3.is_open())
+	{
+		return 1;
+	}
+
+	cout << "Строки,которые находятся в файле F2" << endl;
+	while (f3.peek() != EOF)
+	{
+		getline(f3, str);
+		cout << str << '\n';
+	}
+	f3.close();
 	cout << endl;
-	cout << "Последнее слово содержит " << last_word << " символов" << endl;
+	cout << "Последнее слово в файле F2 содержит " << last_word << " символa(ов)" << endl;
 	return 0;
 }
