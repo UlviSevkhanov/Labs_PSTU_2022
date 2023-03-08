@@ -29,8 +29,9 @@ ListElem* createList(int n)
     return start;
 }
 
-void insert_element(ListElem* &start, int pos, int k, int size)
+void insert_element(ListElem* &start, int pos, int k, int &size)
 {
+    size++;
     ListElem* first = start;
     ListElem* last;
     for (int i = 1; i < pos - 1; i++)
@@ -55,7 +56,7 @@ void insert_element(ListElem* &start, int pos, int k, int size)
         first->next = new_element;
     }
 }
-void insert_elements(ListElem* &list, int pos, int k, int size)
+void insert_elements(ListElem* &list, int pos, int k, int &size)
 {
     for (int i = 0; i < k; i++)
     {
@@ -63,7 +64,7 @@ void insert_elements(ListElem* &list, int pos, int k, int size)
     }
 }
 
-void delete_element(ListElem* &start, int pos, int k, int size)
+void delete_element(ListElem* &start, int pos, int k, int &size)
 {
     size--;
     ListElem* first = start;
@@ -72,12 +73,20 @@ void delete_element(ListElem* &start, int pos, int k, int size)
     {
         first = first->next;
     }
-    last = first->next->next;
-    first->next = last;
-    last->prev = first;
+    if (pos == 1)
+    {
+        start = first->next;
+        first->next = start;
+    }
+    else
+    {
+        last = first->next->next;
+        first->next = last;
+        last->prev = first;
+    }
 }
 
-void delete_elements(ListElem* &start, int pos, int k, int size)
+void delete_elements(ListElem* &start, int pos, int k, int &size)
 {
     size -= k;
     ListElem* first = start;
@@ -87,12 +96,23 @@ void delete_elements(ListElem* &start, int pos, int k, int size)
         first = first->next;;
     }
     last = first;
-    for (int i = 0; i < k + 1; i++)
+    if (pos == 1)
     {
-        last = last->next;
+        for (int i = 1; i < k; i++)
+        {
+            start = first->next->next;
+            first->next = start;
+        }
     }
-    first->next = last;
-    last->prev = first;
+    else
+    {
+        for (int i = 0; i < k + 1; i++)
+        {
+            last = last->next;
+        }
+        first->next = last;
+        last->prev = first;
+    }
 }
 
 void search_element(ListElem* start, int element)
@@ -144,24 +164,24 @@ int main()
     cin >> pos;
     insert_element(list, pos, 1, size);
     cout << "Вывод списка" << endl;
-    printList(list, size + 1);
+    printList(list, size);
     cout << "Введите на какую позицию хотите добавить элементы и какое количество: ";
     cin >> pos;
     cin >> k;
-    insert_elements(list, pos, k, size += k);
+    insert_elements(list, pos, k, size);
     cout << "Вывод списка" << endl;
-    printList(list, size += k - 1);
+    printList(list, size);
     cout << "Введите на какой позиции хотите удалить элемент: ";
     cin >> pos;
     delete_element(list, pos, 1, size);
     cout << "Вывод списка" << endl;
-    printList(list, size - 1);
+    printList(list, size);
     cout << "Введите на какой позиции хотите удалить элементы и какое количество: ";
     cin >> pos;
     cin >> k;
-    delete_elements(list, pos, k, size -= k);
+    delete_elements(list, pos, k, size);
     cout << "Вывод списка" << endl;
-    printList(list, size -= k - 1);
+    printList(list, size);
     cout << "Какой элемент вы хотите найти?: ";
     cin >> element;
     search_element(list, element);
