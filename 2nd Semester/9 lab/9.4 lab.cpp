@@ -21,7 +21,7 @@ int main()
 	}
 
 	cin.get();
-	for (int i = 0; i < n;i++)
+	for (int i = 0; i < n; i++)
 	{
 		getline(cin, str);
 		fout << str << endl;;
@@ -38,7 +38,7 @@ int main()
 
 	while (getline(f, str))
 	{
-		if (++i>=4)
+		if (++i >= 4)
 		{
 			fin << str << endl;
 		}
@@ -59,7 +59,7 @@ int main()
 	while (!f2.eof())
 	{
 		f2.get(ch);
-		if (ch == ' ' || ch == '\n' || ch =='\0')
+		if (ch == ' ' || ch == '\n' || ch == '\0')
 		{
 			if (count > 0)
 			{
@@ -73,22 +73,18 @@ int main()
 		}
 	}
 
-	f2.close();
-
-	ifstream f3("F2.txt");
-
-	if (!f3.is_open())
-	{
-		return 1;
-	}
+	f2.clear();
+	f2.seekg(0);
 
 	cout << "Строки,которые находятся в файле F2" << endl;
-	while (f3.peek() != EOF)
+	while (!f2.eof())
 	{
-		getline(f3, str);
+		getline(f2, str);
 		cout << str << '\n';
 	}
-	f3.close();
+
+	f2.close();
+
 	cout << endl;
 	cout << "Последнее слово в файле F2 содержит " << last_word << " символa(ов)" << endl;
 	return 0;
