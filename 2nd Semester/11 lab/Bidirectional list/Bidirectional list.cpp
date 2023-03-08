@@ -29,7 +29,7 @@ ListElem* createList(int n)
     return start;
 }
 
-void insert_element(ListElem* start, int pos, int k, int size)
+void insert_element(ListElem* &start, int pos, int k, int size)
 {
     ListElem* first = start;
     ListElem* last;
@@ -42,12 +42,20 @@ void insert_element(ListElem* start, int pos, int k, int size)
     ListElem* new_element = new ListElem;
     cout << "Введите элемент: ";
     cin >> new_element->data;
-    new_element->prev = first;
-    new_element->next = last;
-    last->prev = new_element;
-    first->next = new_element;
+    if (pos == 1)
+    {
+        new_element->next = first;
+        start = new_element;
+    }
+    else
+    {
+        new_element->prev = first;
+        new_element->next = last;
+        last->prev = new_element;
+        first->next = new_element;
+    }
 }
-void insert_elements(ListElem* list, int pos, int k, int size)
+void insert_elements(ListElem* &list, int pos, int k, int size)
 {
     for (int i = 0; i < k; i++)
     {
@@ -55,7 +63,7 @@ void insert_elements(ListElem* list, int pos, int k, int size)
     }
 }
 
-void delete_element(ListElem* start, int pos, int k, int size)
+void delete_element(ListElem* &start, int pos, int k, int size)
 {
     size--;
     ListElem* first = start;
@@ -69,7 +77,7 @@ void delete_element(ListElem* start, int pos, int k, int size)
     last->prev = first;
 }
 
-void delete_elements(ListElem* start, int pos, int k, int size)
+void delete_elements(ListElem* &start, int pos, int k, int size)
 {
     size -= k;
     ListElem* first = start;

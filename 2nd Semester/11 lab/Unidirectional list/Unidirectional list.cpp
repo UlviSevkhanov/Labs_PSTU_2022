@@ -26,7 +26,7 @@ ListElem* createList(int n)
     return start;
 }
 
-void insert_element(ListElem* start, int pos,int k,int size)
+void insert_element(ListElem* &start, int pos,int k,int size)
 {
     ListElem *first = start;
     for (int i = 1; i < pos - 1; i++)
