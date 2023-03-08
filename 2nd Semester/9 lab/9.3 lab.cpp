@@ -2,6 +2,7 @@
 #include <fstream>
 #include <windows.h>
 #include <string>
+#include <cctype>
 using namespace std;
 
 int main()
@@ -31,6 +32,9 @@ int main()
 	ifstream f("F1.txt");
 	ofstream fin("F2.txt");
 
+	char a;
+	char b;
+
 	if (!f.is_open() && !fin.is_open())
 	{
 		return 1;
@@ -38,7 +42,20 @@ int main()
 
 	while (getline(f, str))
 	{
-		if (str[0] != 'А')
+		a = str[0];
+		b = str[str.length() - 1];
+
+		if (a < -32 || a > -1)
+		{
+			a += 32;
+		}
+
+		if (b < -32 || b > -1)
+		{
+			b += 32;
+		}
+
+		if (a==b)
 		{
 			fin << str << endl;
 		}
@@ -54,32 +71,16 @@ int main()
 		return 1;
 	}
 
-	getline(f2, str);
-	for (i = 0; i < str.length(); i++)
-	{
-		if (str[i] != ' ')
-		{
-			count++;
-		}
-		else
-		{
-			break;
-		}
-	}
-
-	f2.clear();
-	f2.seekg(0);
-
 	cout << "Строки,которые находятся в файле F2" << endl;
 	while (f2.peek() != EOF)
 	{
 		getline(f2, str);
 		cout << str << '\n';
+		count += str.length();
 	}
+	cout << "Количество символов в файле F2 равно: " << count << " символа(ов)" << endl;
 
 	f2.close();
 
-	cout << endl;
-	cout << "Первое слово в файле F2 содержит " << count << " символa(ов)" << endl;
 	return 0;
 }
