@@ -45,8 +45,9 @@ void insert_element(ListElem* &start, int pos, int k, int &size)
     cin >> new_element->data;
     if (pos == 1)
     {
-        new_element->next = first;
-        start = new_element;
+        new_element->prev = nullptr;
+        last->prev = new_element;
+        new_element ->next=last;
     }
     else
     {
@@ -73,16 +74,16 @@ void delete_element(ListElem* &start, int pos, int k, int &size)
     {
         first = first->next;
     }
+    last = first;
     if (pos == 1)
     {
-        start = first->next;
-        first->next = start;
+        start = last;
+        start->prev = nullptr;
     }
     else
     {
-        last = first->next->next;
-        first->next = last;
-        last->prev = first;
+        first->next = last->next;
+        last->next->prev = first;
     }
 }
 
@@ -96,22 +97,21 @@ void delete_elements(ListElem* &start, int pos, int k, int &size)
         first = first->next;;
     }
     last = first;
+
+    for (int i = 0; i < k; i++)
+    {
+        last = last->next;
+    }
+
     if (pos == 1)
     {
-        for (int i = 1; i < k; i++)
-        {
-            start = first->next->next;
-            first->next = start;
-        }
+        start = last;
+        start->prev = nullptr;
     }
     else
     {
-        for (int i = 0; i < k + 1; i++)
-        {
-            last = last->next;
-        }
-        first->next = last;
-        last->prev = first;
+        first->next = last->next;
+        last->next->prev = first;
     }
 }
 
