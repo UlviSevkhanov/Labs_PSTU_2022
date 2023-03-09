@@ -89,21 +89,19 @@ void delete_elements(ListElem* &start, int pos, int k, int &size)
         first = first->next;;
     }
     last = first;
+
+    for (int i = 0; i < k; i++)
+    {
+        last = last->next;
+    }
+
     if (pos == 1)
     {
-        for (int i = 1; i < k; i++)
-        {
-            start = first->next->next;
-            first->next = start;
-        }
+        start = last;
     }
     else
     {
-        for (int i = 0; i < k + 1; i++)
-        {
-            last = last->next;
-        }
-        first->next = last;
+        first->next = last->next;
     }
 }
 
