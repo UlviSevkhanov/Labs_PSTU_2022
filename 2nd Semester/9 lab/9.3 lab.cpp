@@ -2,7 +2,6 @@
 #include <fstream>
 #include <windows.h>
 #include <string>
-#include <cctype>
 using namespace std;
 
 int main()
@@ -25,7 +24,7 @@ int main()
 	for (int i = 0; i < n; i++)
 	{
 		getline(cin, str);
-		fout << str << endl;;
+		fout << str << endl;
 	}
 	fout.close();
 
