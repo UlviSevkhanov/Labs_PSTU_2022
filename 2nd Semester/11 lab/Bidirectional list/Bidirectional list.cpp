@@ -29,7 +29,7 @@ ListElem* createList(int n)
     return start;
 }
 
-void insert_element(ListElem* &start, int pos, int k, int &size)
+void insert_element(ListElem*& start, int pos, int k, int& size)
 {
     size++;
     ListElem* first = start;
@@ -46,15 +46,19 @@ void insert_element(ListElem* &start, int pos, int k, int &size)
     if (pos == 1)
     {
         new_element->prev = nullptr;
-        last->prev = new_element;
-        new_element ->next=last;
+        start->prev = new_element;
+        new_element->next = start;
+        start = new_element;
     }
     else
     {
-        new_element->prev = first;
-        new_element->next = last;
-        last->prev = new_element;
-        first->next = new_element;
+       new_element->prev = first;
+       new_element->next = last;
+       if (last != nullptr)
+       {
+           last->prev = new_element;
+       }
+       first->next = new_element;
     }
 }
 void insert_elements(ListElem* &list, int pos, int k, int &size)
@@ -74,16 +78,19 @@ void delete_element(ListElem* &start, int pos, int k, int &size)
     {
         first = first->next;
     }
-    last = first;
+    last = first->next;
     if (pos == 1)
     {
-        start = last;
+        start = start->next;
         start->prev = nullptr;
     }
     else
     {
         first->next = last->next;
-        last->next->prev = first;
+        if (last->next != nullptr)
+        {
+            last->next->prev = first;
+        }
     }
 }
 
@@ -111,7 +118,10 @@ void delete_elements(ListElem* &start, int pos, int k, int &size)
     else
     {
         first->next = last->next;
-        last->next->prev = first;
+        if (last->next != nullptr)
+        {
+            last->next->prev = first;
+        }
     }
 }
 
