@@ -23,9 +23,9 @@ int main()
 
 	string* arr1 = new string[n + 1];
 
-	for (int i = 0; i < n+1; i++)
+	for (int i = 0; i < n + 1; i++)
 	{
-		if (i < k-1)
+		if (i < k - 1)
 		{
 			arr1[i] = arr[i];
 		}
@@ -36,13 +36,16 @@ int main()
 		}
 		if (i > k - 1)
 		{
-			arr1[i] = arr[i-1];
+			arr1[i] = arr[i - 1];
 		}
 	}
 
-	for (int i = 0; i < n+1; i++)
+	for (int i = 0; i < n + 1; i++)
 	{
 		cout << arr1[i] << ' ';
 	}
+
+	delete[] arr;
+	delete[] arr1;
 	return 0;
 }
