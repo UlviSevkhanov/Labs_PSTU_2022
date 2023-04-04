@@ -9,6 +9,7 @@ class Money
 public:
 	Money();
 	Money(long RUB, int KOP);
+	Money(Money& tmp);
 	~Money();
 	long get_rub();
 	int get_kop();

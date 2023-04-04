@@ -12,6 +12,11 @@ Money::Money(long RUB, int KOP)
 	rub = RUB;
 	kop = KOP;
 }
+Money::Money(Money& tmp)
+{
+	rub = tmp.rub;
+	kop = tmp.kop;
+}
 Money::~Money() {};
 long Money::get_rub()
 {
