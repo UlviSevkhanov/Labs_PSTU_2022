@@ -5,10 +5,10 @@
 class Long : public Pair
 {
 public:
-	Long();
+	Long(void);
 	Long(int, int);
 	Long(Long&);
-	~Long();
+	~Long(void);
 	Long operator+(const Long&);
 	Long operator-(const Long&);
 	Long operator*(const Long&);

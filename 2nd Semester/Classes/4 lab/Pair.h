@@ -7,9 +7,9 @@ protected:
 	int first;
 	int second;
 public:
-	Pair();
+	Pair(void);
 	Pair(int, int);
-	~Pair();
+	~Pair(void);
 	Pair(const Pair&);
 	void set(int, int);
 	int getFirst(const Pair&);
