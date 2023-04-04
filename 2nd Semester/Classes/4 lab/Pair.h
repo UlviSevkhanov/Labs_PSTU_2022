@@ -8,14 +8,14 @@ protected:
 	int second;
 public:
 	Pair();
-	Pair(int F, int S);
+	Pair(int, int);
 	~Pair();
-	Pair(const Pair& p);
-	void set(int f, int s);
-	int getFirst(const Pair& p);
-	int getSecond(const Pair& p);
+	Pair(const Pair&);
+	void set(int, int);
+	int getFirst(const Pair&);
+	int getSecond(const Pair&);
 	friend std::istream& operator>>(std::istream& in, Pair& p);
 	friend std::ostream& operator<<(std::ostream& out, const Pair& p);
-	Pair& operator=(const Pair& p);
-	Pair operator+(const Pair& p);
+	Pair& operator=(const Pair&);
+	Pair operator+(const Pair&);
 };

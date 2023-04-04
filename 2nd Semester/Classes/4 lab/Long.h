@@ -6,10 +6,10 @@ class Long : public Pair
 {
 public:
 	Long();
-	Long(int first, int second);
-	Long(Long& l);
+	Long(int, int);
+	Long(Long&);
 	~Long();
-	Long operator+(const Long& l);
-	Long operator-(const Long& l);
-	Long operator*(const Long& l);
+	Long operator+(const Long&);
+	Long operator-(const Long&);
+	Long operator*(const Long&);
 };
