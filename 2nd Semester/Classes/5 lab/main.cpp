@@ -1,20 +1,38 @@
 #include <iostream>
-#include "Pair.h"
-#include "Long.h"
+#include "Person.h"
+#include "Student.h"
 #include "Object.h"
 #include "Vector.h"
+#include <string>
+#include <Windows.h>
 
-int main()
+void f1(Person& f)
+{
+	f.setName("Вова");
+	std::cout << f << "\n";
+}
+
+Person f2()
+{
+	Student s("Олег", 20, 3);
+	return s;
+}
+
+int  main()
 {
 	setlocale(LC_ALL, "RUS");
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
 	Vector v(5);
-	Pair a;
-	std::cin >> a;
-	Long b(a.getFirst(a), a.getSecond(a));
-	Object* p = &a;
+	Person human1;
+	std::cin >> human1;
+	Student human2("Евгений", 18, 4);
+	Object* p = &human1;
 	v.Add(p);
-	p = &b;
+	p = &human2;
 	v.Add(p);
 	std::cout << v;
+
 	return 0;
 }
