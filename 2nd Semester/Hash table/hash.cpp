@@ -168,9 +168,11 @@ void fill_arr_of_random_humans(Human* arr,int size)
 
 void show(Human tmp)
 {
+	cout << "------------------------------" << endl;
 	cout << "ФИО: " << tmp.fio << endl;
 	cout << "Номер телефона: " << tmp.phone << endl;
 	cout << "Дата рождения: " << tmp.date << endl;
+	cout << "------------------------------" << endl;
 }
 
 void print_arr_of_humans(Human* arr,int size)
@@ -211,7 +213,7 @@ string get_random_date()
 
 int get_random_number()
 {
-	return rand() % 10;
+	return rand() % 9;
 }
 
 int	main()
@@ -219,6 +221,7 @@ int	main()
 	setlocale(LC_ALL, "RUS");
 	srand(time(NULL));
 	int size;
+	string date;
 	cout << "Введите количество элементов в массиве (не менее 100)" << endl;
 	cin >> size;
 	Human* arr = new Human[size];
@@ -230,9 +233,16 @@ int	main()
 	}
 	show_hash_table(&table, size);
 	cout << endl << endl;
-	table.search_index("01.01.1981", size);
+	cout << "Введите дату рождения человека, которого хотите найти" << endl;
+	cin >> date;
+	cout << endl;
+	table.search_index(date, size);
 	cout << endl << endl;
-	table.pop("01.01.1981", size);
+	show_hash_table(&table, size);
+	cout << endl << endl;
+	cout << "Введите дату рождения человека, которого хотите удалить" << endl;
+	cin >> date;
+	table.pop(date, size);
 	cout << endl << endl;
 	show_hash_table(&table, size);
 	cout << endl << endl;
