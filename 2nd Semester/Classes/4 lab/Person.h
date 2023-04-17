@@ -15,7 +15,7 @@ public:
 	std::string getName(void);
 	int getAge(void);
 	void setName(std::string);
-	void getAge(int);
+	void setAge(int);
 	friend std::istream& operator>>(std::istream& in, Person& p);
 	friend std::ostream& operator<<(std::ostream& out, const Person& p);
 	Person& operator=(const Person&);
