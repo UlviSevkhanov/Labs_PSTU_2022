@@ -30,19 +30,19 @@ void Person::setName(std::string name)
 {
 	Name = name;
 }
-void Person::getAge(int age)
+void Person::setAge(int age)
 {
 	Age = age;
 }
 std::istream& operator>>(std::istream& in, Person& p)
 {
-	std::cout << "Èìÿ: "; in >> p.Name;
-	std::cout << "Âîçğàñò: "; in >> p.Age;
+	std::cout << "ÃˆÃ¬Ã¿: "; in >> p.Name;
+	std::cout << "Ã‚Ã®Ã§Ã°Ã Ã±Ã²: "; in >> p.Age;
 	return in;
 }
 std::ostream& operator<<(std::ostream& out, const Person& p)
 {
-	return (out << "Èìÿ: " << p.Name << "\n" << "Âîçğàñò: " << p.Age << "\n");
+	return (out << "ÃˆÃ¬Ã¿: " << p.Name << "\n" << "Ã‚Ã®Ã§Ã°Ã Ã±Ã²: " << p.Age << "\n");
 }
 Person& Person::operator=(const Person& t)
 {
