@@ -16,7 +16,7 @@ public:
 	Set operator+(Set&);
 	Set operator++(int);
 	int operator()();
-	int& operator[](int index);
+	int& operator[](int);
 	friend istream& operator>> (istream& in, Set& a);
 	friend ostream& operator<< (ostream& out, const Set& a);
 };
