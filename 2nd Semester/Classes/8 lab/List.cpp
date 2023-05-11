@@ -26,7 +26,7 @@ List::~List(void)
 void List::Add(void)
 {
 	Object* tmp;
-	cout << "1.×åëîâåê " << " èëè " << "2.Ñòóäåíò" << endl;
+	cout << "1.Ã—Ã¥Ã«Ã®Ã¢Ã¥Ãª " << " Ã¨Ã«Ã¨ " << "2.Ã‘Ã²Ã³Ã¤Ã¥Ã­Ã²" << endl;
 	int c;
 	cin >> c;
 	if (c == 1)
@@ -60,7 +60,7 @@ void List::Show()
 {
 	if (cur == 0)
 	{
-		cout << "Ïóñòî" << endl;
+		cout << "ÃÃ³Ã±Ã²Ã®" << endl;
 	}
 	Object** p = beg;
 	for (int i = 0; i < cur; i++)
@@ -83,7 +83,6 @@ void List::Del(void)
 }
 void List::Find(int tmp)
 {
-	beg[tmp];
 	Object** p = beg;
 	for (int i = 0; i < cur; i++)
 	{
