@@ -3,6 +3,8 @@
 #include <QMessageBox>
 #include "priority_queue.h"
 
+bool flag=false;
+
 Graph::Graph(QWidget *parent) : QGraphicsView(parent){
     scene = new QGraphicsScene(this);
     scene->setItemIndexMethod(QGraphicsScene::NoIndex);
@@ -202,7 +204,7 @@ void Graph::createTabWidget(const QRectF &rect){
     menu->addSeparator();
 
     QAction *dijkstra = new QAction(tr("Dijkstra 's algorithm"), this);
-    bfs->setStatusTip(tr("Dijkstra 's algorithm"));
+    dijkstra->setStatusTip(tr("Dijkstra 's algorithm"));
     connect(dijkstra, &QAction::triggered, this, &Graph::createDijkstraWindow);
     menu->addAction(dijkstra);
     menu->addSeparator();
@@ -349,7 +351,7 @@ void Graph::getGraphInfo(){
     infoWindow->setItem(2, 1, new QTableWidgetItem(QString::number(connected)));
 
     QString dijkstra1 = "Dijkstra 's algorithm at index ";
-    if(dijkstraSignal()!=-1)
+    if(flag==true && dijkstraSignal()!=-1)
     {
         QVector<int> k=dijkstra(dijkstraSignal());
         dijkstra1+= QString::number(dijkstraSignal());
@@ -853,6 +855,7 @@ void Graph::bfsSignal(){
 
 int Graph::dijkstraSignal()
 {
+    flag=true;
     int index=input1->text().toInt();
     window->close();
     if(index >= vertexList.size()){
